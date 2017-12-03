@@ -1,0 +1,15 @@
+{
+    "name": "alucky4423/php-optional",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alucky4423",
+            "email": "a.lucky2510@gmail.com"
+        }
+    ],
+    "require": {}
+}
