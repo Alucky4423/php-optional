@@ -12,6 +12,11 @@
             "email": "a.lucky2510@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Alucky4423\\": "src/"
+        }
+    },
     "config": {
         "platform": {
             "php": ">=7.1.0"
