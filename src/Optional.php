@@ -6,7 +6,7 @@ use Alucky4423\Exceptions\NullPointerException;
 
 class Optional
 {
-    private static $emptyInstance;
+    private static $instanceOfNullValue;
     private $value;
 
     /**
@@ -41,10 +41,10 @@ class Optional
      */
     public static function ofNull(): Optional
     {
-        if (! isset(self::$emptyInstance))
-            self::$emptyInstance = new self(null);
+        if (! isset(self::$instanceOfNullValue))
+            self::$instanceOfNullValue = new self(null);
 
-        return self::$emptyInstance;
+        return self::$instanceOfNullValue;
     }
 
 
