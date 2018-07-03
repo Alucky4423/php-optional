@@ -57,19 +57,18 @@ class OptionalTest extends TestCase
     }
 
 
-    public function ifPresent()
+    public function testIfPresent01()
     {
-        Optional::of("test")
-            ->ifPresent(function($value) {
-                $this->assertTrue(true);
-            });
-
-        Optional::ofNullable(null)
-            ->ifPresent(function($value) {
-                $this->assertNotTrue(true);
-            });
+        Optional::of("test")->ifPresent(function($value) {
+            $this->assertTrue(true);
+        });
     }
 
+    public function testIfPresent02()
+    {
+        $this->expectException(TypeError::class);
+        Optional::ofNullable("test")->ifPresent(null);
+    }
 
     public function toStringDataProvider()
     {
