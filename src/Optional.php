@@ -73,13 +73,27 @@ class Optional
      */
     public function ifPresent(callable $callback): void
     {
-        if ($callback === null)
-            throw new NullPointerException('lambda is null.');
-
         if ($this->isPresent())
             $callback($this->value);
     }
 
+    /**
+     * @param callable $callback
+     * @return Optional
+     */
+    public function filter(callable $callback): Optional
+    {
+        $bool = $callback($this->value);
+        if (gettype($bool) !== 'boolean')
+            throw new TypeError('The callback function must return a boolean value.');
+
+        return $bool ? $this : self::ofNull();
+    }
+
+    public function map(callable $callback): Optional
+    {
+        return self::ofNullable($callback($this->value));
+    }
 
     /**
      * @return string
